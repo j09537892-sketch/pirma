@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <title>3. forma</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <title>Autentifikācija - Ķīmijas laboratorija</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h2>3. forma – Gatavo vielu uzskaite</h2>
-
-    <form>
-        <label>Vielas nosaukums:</label>
-        <input type="text">
-
-        <label>Skaits (vienības):</label>
-        <input type="number">
-
-        <label>Valsts / Iegādes avots:</label>
-        <input type="text">
-
-        <label>Piezīmes:</label>
-        <textarea rows="4"></textarea>
-    </form>
-
-    <a class="button" href="index.html">Atpakaļ uz sākumu</a>
+    <div class="container form-container">
+        <h2>Lūdzu, ievadiet savu paroli un drošības kodu</h2>
+        <p class="intro-text">
+            Ja jums nav drošības koda, sazinieties ar administratoru.
+        </p>
+        <form>
+            <div class="form-group">
+                <label for="password">Parole:</label>
+                <input id="password" type="password" placeholder="Ievadiet paroli" required />
+            </div>
+            <div class="form-group">
+                <label for="code">Drošības kods:</label>
+                <input id="code" type="text" placeholder="Ievadiet drošības kodu" required />
+            </div>
+            <button class="button" type="submit" formaction="work.html">Turpināt</button>
+        </form>
+    </div>
 </body>
 </html>
