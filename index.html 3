@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>2. forma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>2. forma – Reaģentu uzskaite</h2>
+
+    <form>
+        <label>Reaģenta nosaukums:</label>
+        <input type="text">
+
+        <label>Daudzums (g):</label>
+        <input type="number">
+
+        <label>Datums:</label>
+        <input type="date">
+
+        <label>Piezīmes:</label>
+        <textarea rows="4"></textarea>
+    </form>
+
+    <a class="button" href="index.html">Atpakaļ uz sākumu</a>
+</body>
+</html>
