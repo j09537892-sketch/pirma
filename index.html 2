@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Ķīmijas laboratorijas uzskaites sistēma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Ķīmijas laboratorijas uzskaites sistēma</h1>
+
+    <div class="menu">
+        <a class="button" href="forma2.html">Atvērt 2. formu</a>
+        <a class="button" href="forma3.html">Atvērt 3. formu</a>
+    </div>
+</body>
+</html>
