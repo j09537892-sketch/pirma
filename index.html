@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <title>Ķīmijas laboratorijas uzskaites sistēma</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <title>Reģistrācija - Ķīmijas laboratorija</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Ķīmijas laboratorijas uzskaites sistēma</h1>
-
-    <div class="menu">
-        <a class="button" href="forma2.html">Atvērt 2. formu</a>
-        <a class="button" href="forma3.html">Atvērt 3. formu</a>
+    <div class="container form-container">
+        <h1>Laipni lūdzam Ķīmijas laboratorijas uzskaites sistēmā!</h1>
+        <p class="intro-text">
+            Lūdzu, aizpildiet reģistrācijas formu, lai piekļūtu savam kontam.<br/>
+            Jūsu dati būs drošībā — mēs izmantojam visaugstākās drošības prasības!
+        </p>
+        <form>
+            <div class="form-group">
+                <label for="username">Lietotājvārds:</label>
+                <input id="username" type="text" placeholder="Ievadiet lietotājvārdu" required />
+            </div>
+            <div class="form-group">
+                <label for="email">E-pasts:</label>
+                <input id="email" type="email" placeholder="Ievadiet e-pasta adresi" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Parole:</label>
+                <input id="password" type="password" placeholder="Ievadiet paroli" required />
+            </div>
+            <div class="form-group">
+                <label for="password2">Paroles apstiprinājums:</label>
+                <input id="password2" type="password" placeholder="Atkārtoti ievadiet paroli" required />
+            </div>
+            <button class="button" type="submit" formaction="auth.html">Reģistrēties</button>
+        </form>
     </div>
 </body>
 </html>
