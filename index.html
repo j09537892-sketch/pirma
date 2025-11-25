@@ -2,35 +2,35 @@
 <html lang="lv">
 <head>
     <meta charset="UTF-8" />
-    <title>Reģistrācija - Ķīmijas laboratorija</title>
+    <title>Darba forma - Ķīmijas laboratorija</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="container form-container">
-        <h1>Laipni lūdzam Ķīmijas laboratorijas uzskaites sistēmā!</h1>
+        <h2>Reģistrēt jaunu vielu vai reaģentu</h2>
         <p class="intro-text">
-            Lūdzu, aizpildiet reģistrācijas formu, lai piekļūtu savam kontam.<br/>
-            Jūsu dati būs drošībā — mēs izmantojam visaugstākās drošības prasības!
+            Aizpildiet visus laukus un saglabājiet ierakstu.
         </p>
         <form>
             <div class="form-group">
-                <label for="username">Lietotājvārds:</label>
-                <input id="username" type="text" placeholder="Ievadiet lietotājvārdu" required />
+                <label for="substance">Vielas nosaukums:</label>
+                <input id="substance" type="text" placeholder="Ievadiet vielas nosaukumu" required />
             </div>
             <div class="form-group">
-                <label for="email">E-pasts:</label>
-                <input id="email" type="email" placeholder="Ievadiet e-pasta adresi" required />
+                <label for="mass">Masa (g):</label>
+                <input id="mass" type="number" placeholder="Ievadiet masu gramos" required />
             </div>
             <div class="form-group">
-                <label for="password">Parole:</label>
-                <input id="password" type="password" placeholder="Ievadiet paroli" required />
+                <label for="date">Datums:</label>
+                <input id="date" type="date" required />
             </div>
             <div class="form-group">
-                <label for="password2">Paroles apstiprinājums:</label>
-                <input id="password2" type="password" placeholder="Atkārtoti ievadiet paroli" required />
+                <label for="notes">Piezīmes:</label>
+                <textarea id="notes" rows="4" placeholder="Piezīmes..."></textarea>
             </div>
-            <button class="button" type="submit" formaction="auth.html">Reģistrēties</button>
+            <button class="button" type="submit">Saglabāt</button>
         </form>
+        <a href="index.html" class="button back-button">Atpakaļ uz sākumu</a>
     </div>
 </body>
 </html>
