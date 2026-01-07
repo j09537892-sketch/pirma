@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8" />
-    <title>Darba forma - Ķīmijas laboratorija</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Reģistrācija - Ķīmijas laboratorija</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container form-container">
         <h2>Reģistrēt jaunu vielu vai reaģentu</h2>
-        <p class="intro-text">
-            Aizpildiet visus laukus un saglabājiet ierakstu.
-        </p>
-        <form>
+        <p class="intro-text">Aizpildiet visus laukus un saglabājiet ierakstu.</p>
+
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="password">Parole:</label>
+                <input id="password" type="password" placeholder="Ievadiet paroli" required>
+            </div>
+            <div class="form-group">
+                <label for="code">Drošības kods:</label>
+                <input id="code" type="text" placeholder="Ievadiet drošības kodu" required>
+            </div>
             <div class="form-group">
                 <label for="substance">Vielas nosaukums:</label>
-                <input id="substance" type="text" placeholder="Ievadiet vielas nosaukumu" required />
+                <input id="substance" type="text" placeholder="Ievadiet vielas nosaukumu" required>
             </div>
             <div class="form-group">
                 <label for="mass">Masa (g):</label>
-                <input id="mass" type="number" placeholder="Ievadiet masu gramos" required />
+                <input id="mass" type="number" placeholder="Ievadiet masu gramos" required>
             </div>
             <div class="form-group">
                 <label for="date">Datums:</label>
-                <input id="date" type="date" required />
+                <input id="date" type="date" required>
             </div>
             <div class="form-group">
                 <label for="notes">Piezīmes:</label>
                 <textarea id="notes" rows="4" placeholder="Piezīmes..."></textarea>
             </div>
+            <div class="form-group">
+                <label for="type">Tips:</label>
+                <select id="type" required>
+                    <option value="Viela">Viela</option>
+                    <option value="Inventārs">Inventārs</option>
+                </select>
+            </div>
             <button class="button" type="submit">Saglabāt</button>
         </form>
+
         <a href="index.html" class="button back-button">Atpakaļ uz sākumu</a>
     </div>
+
+    <script>
+        const form = document.getElementById('registration-form');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const newRecord = {
+                name: document.getElementById('substance').value,
+                type: document.getElementById('type').value,
+                amount: document.getElementById('mass').value + ' g',
+                date: document.getElementById('date').value
+            };
+            let records = JSON.parse(localStorage.getItem('records')) || [];
+            records.push(newRecord);
+            localStorage.setItem('records', JSON.stringify(records));
+            alert('Ieraksts saglabāts!');
+            form.reset();
+        });
+    </script>
 </body>
 </html>
