@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8" />
-    <title>Autentifikācija - Ķīmijas laboratorija</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Ķīmijas laboratorija</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container form-container">
-        <h2>Lūdzu, ievadiet savu paroli un drošības kodu</h2>
-        <p class="intro-text">
-            Ja jums nav drošības koda, sazinieties ar administratoru.
+    <div class="main-container">
+        <h1>Laipni lūdzam Ķīmijas laboratorijas sistēmā!</h1>
+        <p class="welcome-text">
+            Šī ir jūsu uzticamā platforma ķīmijas laboratorijas uzskaites darbam.<br>
+            Efektīvi, droši un pārskatāmi – viss vienuviet.
         </p>
-        <form>
-            <div class="form-group">
-                <label for="password">Parole:</label>
-                <input id="password" type="password" placeholder="Ievadiet paroli" required />
-            </div>
-            <div class="form-group">
-                <label for="code">Drošības kods:</label>
-                <input id="code" type="text" placeholder="Ievadiet drošības kodu" required />
-            </div>
-            <button class="button" type="submit" formaction="work.html">Turpināt</button>
-        </form>
+        <div class="buttons">
+            <a href="registration.html" class="button">Reģistrēties</a>
+            <a href="work.html" class="button secondary">Darbs</a>
+        </div>
+        <img src="https://images.unsplash.com/photo-1581090700227-9e2c6f923eb1?auto=format&fit=crop&w=600&q=80" alt="Chemistry lab" class="hero-image" />
     </div>
 </body>
 </html>
