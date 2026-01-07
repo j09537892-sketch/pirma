@@ -2,21 +2,72 @@
 <html lang="lv">
 <head>
     <meta charset="UTF-8">
-    <title>Ķīmijas laboratorija</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ķīmijas laboratorija - Sākums</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Sākums</a>
+        <a href="registration.html" class="nav-link"><i class="fas fa-user-plus"></i> Reģistrācija</a>
+        <a href="work.html" class="nav-link"><i class="fas fa-flask"></i> Darbs</a>
+    </nav>
+
     <div class="main-container">
-        <h1>Laipni lūdzam Ķīmijas laboratorijas sistēmā!</h1>
-        <p class="welcome-text">
-            Šī ir jūsu uzticamā platforma ķīmijas laboratorijas uzskaites darbam.<br>
-            Efektīvi, droši un pārskatāmi – viss vienuviet.
-        </p>
-        <div class="buttons">
-            <a href="registration.html" class="button">Reģistrēties</a>
-            <a href="work.html" class="button secondary">Darbs</a>
+        <header class="page-header">
+            <h1><i class="fas fa-atom"></i> Laipni lūdzam Ķīmijas laboratorijas sistēmā!</h1>
+            <p class="subtitle">Viedo risinājumu platforma mūsdienu laboratorijai</p>
+        </header>
+        
+        <div class="welcome-section">
+            <div class="welcome-text">
+                <p><i class="fas fa-check-circle"></i> Šī ir jūsu uzticamā platforma ķīmijas laboratorijas uzskaites darbam.</p>
+                <p><i class="fas fa-check-circle"></i> Efektīvi, droši un pārskatāmi – viss vienuviet.</p>
+                <p><i class="fas fa-check-circle"></i> Pārvaldiet vielas, inventāru un lietotājus vienotā vidē.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-vial"></i>
+                    <h3>Vielu pārvaldība</h3>
+                    <p>Pārvaldiet ķīmikālijas un reaģentus</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Inventāra uzskaite</h3>
+                    <p>Sekojiet laboratorijas iekārtām</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Lietotāju pārvaldība</h3>
+                    <p>Reģistrējiet un pārvaldiet piekļuvi</p>
+                </div>
+            </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1581090700227-9e2c6f923eb1?auto=format&fit=crop&w=600&q=80" alt="Chemistry lab" class="hero-image" />
+        
+        <div class="buttons">
+            <a href="registration.html" class="button primary-btn">
+                <i class="fas fa-user-plus"></i> Reģistrēties
+            </a>
+            <a href="work.html" class="button secondary-btn">
+                <i class="fas fa-database"></i> Apskatīt datus
+            </a>
+        </div>
+        
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1581090700227-9e2c6f923eb1?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Modern Chemistry Laboratory" class="hero-image">
+            <div class="image-caption">
+                <i class="fas fa-microscope"></i> Moderna ķīmijas laboratorija
+            </div>
+        </div>
+        
+        <footer class="main-footer">
+            <p>Ķīmijas laboratorijas sistēma &copy; 2024 | Visas tiesības aizsargātas</p>
+        </footer>
     </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
