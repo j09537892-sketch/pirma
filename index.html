@@ -2,68 +2,173 @@
 <html lang="lv">
 <head>
     <meta charset="UTF-8">
-    <title>Darba forma - Ķīmijas laboratorija</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dati - Ķīmijas laboratorija</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container form-container">
-        <h2>Vielas un Inventārs</h2>
-        <label for="filter">Filtrēt pēc:</label>
-        <select id="filter">
-            <option value="all">Rādīt visu</option>
-            <option value="Viela">Vielas</option>
-            <option value="Inventārs">Inventārs</option>
-        </select>
+    <nav class="navbar">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Sākums</a>
+        <a href="registration.html" class="nav-link"><i class="fas fa-user-plus"></i> Reģistrācija</a>
+        <a href="work.html" class="nav-link active"><i class="fas fa-flask"></i> Darbs</a>
+    </nav>
 
-        <table id="records-table">
-            <thead>
-                <tr>
-                    <th>Nosaukums</th>
-                    <th>Tips</th>
-                    <th>Daudzums</th>
-                    <th>Datums</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Ieraksti tiks ielādēti JS -->
-            </tbody>
-        </table>
-
-        <a href="index.html" class="button back-button">Atpakaļ uz sākumu</a>
+    <div class="main-container">
+        <header class="page-header">
+            <h1><i class="fas fa-database"></i> Vielu un Inventāra Katalogs</h1>
+            <p class="subtitle">Pārvaldiet un meklējiet laboratorijas resursus</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-icon viela">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Kopā vielas</h3>
+                        <p class="stat-number" id="total-vielas">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon inventars">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Kopā inventārs</h3>
+                        <p class="stat-number" id="total-inventars">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Kopā vienības</h3>
+                        <p class="stat-number" id="total-units">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Meklēt pēc nosaukuma...">
+                </div>
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-layer-group"></i> Rādīt visu
+                    </button>
+                    <button class="filter-btn" data-filter="viela">
+                        <i class="fas fa-vial"></i> Vielas
+                    </button>
+                    <button class="filter-btn" data-filter="inventars">
+                        <i class="fas fa-tools"></i> Inventārs
+                    </button>
+                    <button class="filter-btn" id="sort-date">
+                        <i class="fas fa-sort-amount-down"></i> Kārtot pēc datuma
+                    </button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID <i class="fas fa-sort"></i></th>
+                            <th>Nosaukums <i class="fas fa-sort"></i></th>
+                            <th>Tips <i class="fas fa-sort"></i></th>
+                            <th>Daudzums <i class="fas fa-sort"></i></th>
+                            <th>Vienība</th>
+                            <th>Vieta <i class="fas fa-sort"></i></th>
+                            <th>Pievienošanas datums <i class="fas fa-sort"></i></th>
+                            <th>Darbības</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Dati tiks aizpildīti ar JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-footer">
+                <div class="pagination">
+                    <button class="page-btn" id="prev-page"><i class="fas fa-chevron-left"></i></button>
+                    <span class="page-info" id="page-info">1/1</span>
+                    <button class="page-btn" id="next-page"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="results-info" id="results-info">
+                    Rādās 0 no 0 ierakstiem
+                </div>
+            </div>
+            
+            <div class="export-section">
+                <h3><i class="fas fa-download"></i> Datu eksports:</h3>
+                <button class="export-btn" id="export-csv">
+                    <i class="fas fa-file-csv"></i> CSV fails
+                </button>
+                <button class="export-btn" id="export-json">
+                    <i class="fas fa-file-code"></i> JSON fails
+                </button>
+                <button class="export-btn" id="print-btn">
+                    <i class="fas fa-print"></i> Drukat
+                </button>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <a href="index.html" class="button secondary-btn">
+                <i class="fas fa-arrow-left"></i> Atpakaļ uz sākumu
+            </a>
+            <button class="button primary-btn" id="add-new-btn">
+                <i class="fas fa-plus-circle"></i> Pievienot jaunu ierakstu
+            </button>
+        </div>
     </div>
-
-    <script>
-        let records = JSON.parse(localStorage.getItem('records')) || [];
-
-        const tableBody = document.querySelector("#records-table tbody");
-        const filterSelect = document.getElementById("filter");
-
-        function renderTable(data) {
-            tableBody.innerHTML = '';
-            data.forEach(item => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${item.name}</td>
-                    <td>${item.type}</td>
-                    <td>${item.amount}</td>
-                    <td>${item.date}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-
-        // Sākotnēji visi ieraksti
-        renderTable(records);
-
-        filterSelect.addEventListener('change', () => {
-            const filter = filterSelect.value;
-            if (filter === 'all') {
-                renderTable(records);
-            } else {
-                renderTable(records.filter(r => r.type === filter));
-            }
-        });
-    </script>
+    
+    <!-- Modāls jauna ieraksta pievienošanai -->
+    <div class="modal" id="add-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-plus-circle"></i> Pievienot jaunu ierakstu</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="add-form">
+                    <div class="form-group">
+                        <label for="new-name">Nosaukums:</label>
+                        <input type="text" id="new-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-type">Tips:</label>
+                        <select id="new-type" required>
+                            <option value="viela">Viela</option>
+                            <option value="inventars">Inventārs</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-amount">Daudzums:</label>
+                        <input type="number" id="new-amount" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-unit">Vienība:</label>
+                        <input type="text" id="new-unit" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-location">Vieta:</label>
+                        <input type="text" id="new-location" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="button secondary-btn close-modal">Atcelt</button>
+                <button class="button primary-btn" id="save-new">Saglabāt</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
-
