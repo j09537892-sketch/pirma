@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8" />
-    <title>Ķīmijas laboratorija</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Darba forma - Ķīmijas laboratorija</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-container">
-        <h1>Laipni lūdzam Ķīmijas laboratorijas sistēmā!</h1>
-        <p class="welcome-text">
-            Šī ir jūsu uzticamā platforma ķīmijas laboratorijas uzskaites darbam.<br />
-            Efektīvi, droši un pārskatāmi – viss vienuviet.
-        </p>
-        <img src="https://images.unsplash.com/photo-1581090700227-9e2c6f923eb1?auto=format&fit=crop&w=600&q=80" alt="Chemistry lab" class="hero-image" />
-        <div class="buttons">
-            <a href="registration.html" class="button">Reģistrēties</a>
-            <a href="work.html" class="button secondary">Darbs</a>
-        </div>
+    <div class="container form-container">
+        <h2>Vielas un Inventārs</h2>
+        <label for="filter">Filtrēt pēc:</label>
+        <select id="filter">
+            <option value="all">Rādīt visu</option>
+            <option value="Viela">Vielas</option>
+            <option value="Inventārs">Inventārs</option>
+        </select>
+
+        <table id="records-table">
+            <thead>
+                <tr>
+                    <th>Nosaukums</th>
+                    <th>Tips</th>
+                    <th>Daudzums</th>
+                    <th>Datums</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Ieraksti tiks ielādēti JS -->
+            </tbody>
+        </table>
+
+        <a href="index.html" class="button back-button">Atpakaļ uz sākumu</a>
     </div>
+
+    <script>
+        let records = JSON.parse(localStorage.getItem('records')) || [];
+
+        const tableBody = document.querySelector("#records-table tbody");
+        const filterSelect = document.getElementById("filter");
+
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.type}</td>
+                    <td>${item.amount}</td>
+                    <td>${item.date}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Sākotnēji visi ieraksti
+        renderTable(records);
+
+        filterSelect.addEventListener('change', () => {
+            const filter = filterSelect.value;
+            if (filter === 'all') {
+                renderTable(records);
+            } else {
+                renderTable(records.filter(r => r.type === filter));
+            }
+        });
+    </script>
 </body>
 </html>
+
