@@ -2,69 +2,120 @@
 <html lang="lv">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reģistrācija - Ķīmijas laboratorija</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container form-container">
-        <h2>Reģistrēt jaunu vielu vai reaģentu</h2>
-        <p class="intro-text">Aizpildiet visus laukus un saglabājiet ierakstu.</p>
+    <nav class="navbar">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Sākums</a>
+        <a href="registration.html" class="nav-link active"><i class="fas fa-user-plus"></i> Reģistrācija</a>
+        <a href="work.html" class="nav-link"><i class="fas fa-flask"></i> Darbs</a>
+    </nav>
 
-        <form id="registration-form">
-            <div class="form-group">
-                <label for="password">Parole:</label>
-                <input id="password" type="password" placeholder="Ievadiet paroli" required>
-            </div>
-            <div class="form-group">
-                <label for="code">Drošības kods:</label>
-                <input id="code" type="text" placeholder="Ievadiet drošības kodu" required>
-            </div>
-            <div class="form-group">
-                <label for="substance">Vielas nosaukums:</label>
-                <input id="substance" type="text" placeholder="Ievadiet vielas nosaukumu" required>
-            </div>
-            <div class="form-group">
-                <label for="mass">Masa (g):</label>
-                <input id="mass" type="number" placeholder="Ievadiet masu gramos" required>
-            </div>
-            <div class="form-group">
-                <label for="date">Datums:</label>
-                <input id="date" type="date" required>
-            </div>
-            <div class="form-group">
-                <label for="notes">Piezīmes:</label>
-                <textarea id="notes" rows="4" placeholder="Piezīmes..."></textarea>
-            </div>
-            <div class="form-group">
-                <label for="type">Tips:</label>
-                <select id="type" required>
-                    <option value="Viela">Viela</option>
-                    <option value="Inventārs">Inventārs</option>
-                </select>
-            </div>
-            <button class="button" type="submit">Saglabāt</button>
-        </form>
-
-        <a href="index.html" class="button back-button">Atpakaļ uz sākumu</a>
+    <div class="main-container">
+        <header class="page-header">
+            <h1><i class="fas fa-user-plus"></i> Lietotāja reģistrācija</h1>
+            <p class="subtitle">Reģistrējieties, lai piekļūtu laboratorijas sistēmai</p>
+        </header>
+        
+        <div class="form-container">
+            <form id="registration-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Vārds Uzvārds:</label>
+                        <input type="text" id="name" placeholder="Ievadiet savu vārdu un uzvārdu" required>
+                        <div class="form-hint">Pilns vārds, kāds parādīsies sistēmā</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> E-pasts:</label>
+                        <input type="email" id="email" placeholder="piemers@instituts.lv" required>
+                        <div class="form-hint">Izmantojiet institucionālo e-pastu</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Tālruņa numurs:</label>
+                        <input type="tel" id="phone" placeholder="+371 2XXXXXXX">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lab"><i class="fas fa-flask"></i> Laboratorijas nodaļa:</label>
+                        <select id="lab" required>
+                            <option value="">Izvēlieties nodaļu</option>
+                            <option value="org">Organiskā ķīmija</option>
+                            <option value="inorg">Neorganiskā ķīmija</option>
+                            <option value="phys">Fizikālā ķīmija</option>
+                            <option value="bio">Bioloģiskā ķīmija</option>
+                            <option value="anal">Analītiskā ķīmija</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role"><i class="fas fa-user-tag"></i> Loma laboratorijā:</label>
+                        <select id="role" required>
+                            <option value="">Izvēlieties lomu</option>
+                            <option value="student">Students</option>
+                            <option value="researcher">Pētnieks</option>
+                            <option value="assistant">Laborants</option>
+                            <option value="supervisor">Vadītājs</option>
+                            <option value="prof">Profesors</option>
+                            <option value="guest">Viespētnieks</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date"><i class="fas fa-calendar-alt"></i> Reģistrācijas datums:</label>
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="experience"><i class="fas fa-graduation-cap"></i> Pieredze gados:</label>
+                    <input type="range" id="experience" min="0" max="30" value="0" class="slider">
+                    <div class="slider-value" id="exp-value">0 gadi</div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="notes"><i class="fas fa-sticky-note"></i> Papildus piezīmes:</label>
+                    <textarea id="notes" rows="4" placeholder="Papildus informācija par lietotāju..."></textarea>
+                    <div class="form-hint">Maksimālais rakstzīmju skaits: 500</div>
+                    <div class="char-counter" id="char-counter">0/500</div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" required>
+                        <span>Piekrītu <a href="#" class="link">lietojuma noteikumiem</a> un <a href="#" class="link">datu apstrādes politikai</a></span>
+                    </label>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="submit" class="button primary-btn">
+                        <i class="fas fa-paper-plane"></i> Reģistrēties
+                    </button>
+                    <a href="index.html" class="button secondary-btn">
+                        <i class="fas fa-arrow-left"></i> Atpakaļ uz sākumu
+                    </a>
+                    <button type="reset" class="button reset-btn">
+                        <i class="fas fa-redo"></i> Notīrīt formu
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="form-info">
+            <h3><i class="fas fa-info-circle"></i> Svarīga informācija:</h3>
+            <ul>
+                <li>Reģistrācija tiek apstrādēta 1-2 darba dienu laikā</li>
+                <li>Pēc reģistrācijas uz Jūsu e-pastu tiks nosūtīts apstiprinājums</li>
+                <li>Piekļuve laboratorijai tiek nodrošināta pēc vadītāja apstiprinājuma</li>
+                <li>Jautājumu gadījumā sazinieties: laboratorija@instituts.lv</li>
+            </ul>
+        </div>
     </div>
-
-    <script>
-        const form = document.getElementById('registration-form');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            const newRecord = {
-                name: document.getElementById('substance').value,
-                type: document.getElementById('type').value,
-                amount: document.getElementById('mass').value + ' g',
-                date: document.getElementById('date').value
-            };
-            let records = JSON.parse(localStorage.getItem('records')) || [];
-            records.push(newRecord);
-            localStorage.setItem('records', JSON.stringify(records));
-            alert('Ieraksts saglabāts!');
-            form.reset();
-        });
-    </script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
